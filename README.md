@@ -1,0 +1,2 @@
+# SuperMarketDB
+The database homework
