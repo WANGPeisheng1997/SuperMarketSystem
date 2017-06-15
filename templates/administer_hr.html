@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Human Resource</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="/static/assets/css/bootstrap.css" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link href="/static/assets/css/font-awesome.css" rel="stylesheet"/>
+    <!-- CUSTOM STYLES-->
+    <link href="/static/assets/css/custom.css" rel="stylesheet"/>
+    <!-- Morris Chart-->
+    <link href="/static/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet"/>
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+</head>
+<script>
+    function show(){
+    var date = new Date();
+    var now = "";
+    now = date.getFullYear()+"年";
+    now = now + (date.getMonth()+1)+"月";
+    now = now + date.getDate()+"日";
+    now = now + date.getHours()+"时";
+    now = now + date.getMinutes()+"分";
+    now = now + date.getSeconds()+"秒";
+    document.getElementById("nowDiv").innerHTML = now;
+    setTimeout("show()",1000);
+    }
+</script>
+<body onload="show()">
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+    </nav>
+    <!-- /. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li class="text-center">
+                    <img src="/static/assets/img/hr.png" class="user-image img-responsive"/>
+                </li>
+
+
+                <li>
+                    <a href="/staff_hr/{{ user_id }}/hr_profile" class="fa fa-2x" style="text-align: center">HR Info</a>
+                </li>
+                <li>
+                    <a href="/staff_hr/{{ user_id }}/hr_show_purchase_record" class="fa fa-2x"
+                       style="text-align: center">Sale History</a>
+                </li>
+                <li>
+                    <a href="/staff_hr/{{ user_id }}/hr_show_staff_info" class="fa fa-2x" style="text-align: center">Manage
+                        Employee</a>
+                </li>
+                <li>
+                    <a href="/staff_hr/{{ user_id }}/hr_main_page" class="fa fa-2x" style="text-align: center">Return
+                        MainPage</a>
+                </li>
+                <li>
+                    <a href="/" class="fa fa-2x" style="text-align: center">Logout</a>
+                </li>
+            </ul>
+            </ul>
+
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div>
+                    <h2 style="font-size:300%; color: #2a6496; text-align: center">TO BE GREATER!</h2>
+                </div>
+            </div>
+
+            <!-- /. ROW  -->
+            <hr/>
+            <div class="row">
+
+
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Saling Trend
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-bar-chart"></div>
+                        </div>
+                    </div>
+                </div>
+
+                  <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Market Percentage
+                        </div>
+                        <div class="panel-body">
+                            <div id="morris-donut-chart"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /. ROW  -->
+            <div class="row">
+
+
+
+
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+<!-- /. WRAPPER  -->/
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+    <script type="text/javascript">
+{#        window.onload=function () {#}
+{#            var sgz = Morris.Bar#}
+{#              sgz({#}
+{#                element: 'morris-bar-chart',#}
+{#                data: [{#}
+{#                    y: '100000',#}
+{#                    a: 100,#}
+{#                    b: 90#}
+{#                }, {#}
+{#                    y: '2007',#}
+{#                    a: 75,#}
+{#                    b: 65#}
+{#                }, {#}
+{#                    y: '2008',#}
+{#                    a: 50,#}
+{#                    b: 40#}
+{#                }, {#}
+{#                    y: '2009',#}
+{#                    a: 75,#}
+{#                    b: 65#}
+{#                }, {#}
+{#                    y: '2010',#}
+{#                    a: 50,#}
+{#                    b: 40#}
+{#                }, {#}
+{#                    y: '2011',#}
+{#                    a: 75,#}
+{#                    b: 65#}
+{#                }, {#}
+{#                    y: '2012',#}
+{#                    a: 100,#}
+{#                    b: 90#}
+{#                }],#}
+{#                xkey: 'y',#}
+{#                ykeys: ['a', 'b'],#}
+{#                labels: ['Series A', 'Series B'],#}
+{#                hideHover: 'auto',#}
+{#                resize: true#}
+{#            });#}
+{#        }#}
+    </script>
+<script src="/static/assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="/static/assets/js/bootstrap.min.js"></script>
+<!-- METISMENU SCRIPTS -->
+<script src="/static/assets/js/jquery.metisMenu.js"></script>
+<!-- MORRIS CHART SCRIPTS -->
+<script src="/static/assets/js/morris/raphael-2.1.0.min.js"></script>
+<script src="/static/assets/js/morris/morris.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="/static/assets/js/custom.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Human Resource</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="/static/assets/css/bootstrap.css" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link href="/static/assets/css/font-awesome.css" rel="stylesheet"/>
+    <!-- CUSTOM STYLES-->
+    <link href="/static/assets/css/custom.css" rel="stylesheet"/>
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+    </nav>
+    <!-- /. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li class="text-center">
+                    <img src="/static/assets/img/hr.png" class="user-image img-responsive"/>
+                </li>
+
+
+                <li>
+                    <a href="/staff_hr/{{ user_id }}/hr_profile" class="fa fa-2x" style="text-align: center">HR
+                        Info</a>
+                </li>
+                <li>
+                    <a href="/staff_hr/{{ user_id }}/hr_show_purchase_record" class="fa fa-2x"
+                       style="text-align: center">Sale History</a>
+                </li>
+                <li>
+                    <a href="/staff_hr/{{ user_id }}/hr_show_staff_info" class="fa fa-2x" style="text-align: center">Manage
+                        Employee</a>
+                </li>
+                <li>
+                    <a href="/staff_hr/{{ user_id }}/hr_main_page" class="fa fa-2x" style="text-align: center">Return
+                        MainPage</a>
+                </li>
+                <li>
+                    <a href="/" class="fa fa-2x" style="text-align: center">Logout</a>
+                </li>
+            </ul>
+            </ul>
+
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div>
+                    <h2 style="font-size:300%; color: #2a6496; text-align: center">Personal Profile</h2>
+                </div>
+            </div>
+
+            <!-- /. ROW  -->
+            <hr/>
+
+            {#                start coding#}
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" style="font-weight: 900">Administer_Id</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">1234</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">Tom</p>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Working Experience
+                    </div>
+                    <div class="panel-body">
+                        2014-2017: Human Resource Manager of Fudan SuperMarket
+                        </br>
+                        2010-2014: Studying at Fudan University
+                    </div>
+                    <div class="panel-heading">
+                        Personal Profile
+                    </div>
+                    <div class="panel-body">
+                        I am a third year master major in automation at Shanghai Jiao Tong University, P. R. China. With tremendous interest in Industrial Engineering, I am writing to apply for acceptance into your Ph.D. graduate program.
+　　In 1995, I entered the Nanjing University of Science & Technology (NUST) -- widely considered one of the China’s best engineering schools. During the following undergraduate study, my academic records kept distinguished among the whole department. I was granted First Class Prize every semester, and my overall GPA(89.5/100) ranked No.1 among 113 students. In 1999, I got the privilege to enter the graduate program waived of the admission test. I selected the Shanghai Jiao Tong University to continue my study for its best reputation on Combinatorial Optimization and Network Scheduling where my research interest lies.
+                    </div>
+                </div>
+
+            </form>
+
+
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+<!-- /. WRAPPER  -->
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="/static/assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="/static/assets/js/bootstrap.min.js"></script>
+<!-- METISMENU SCRIPTS -->
+<script src="/static/assets/js/jquery.metisMenu.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="/static/assets/js/custom.js"></script>
+
+
+</body>
+</html>

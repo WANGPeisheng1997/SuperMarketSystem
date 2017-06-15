@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Human Resource</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="/static/assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="/static/assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="/static/assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+        </nav>
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				<li class="text-center">
+                    <img src="/static/assets/img/hr.png" class="user-image img-responsive"/>
+					</li>
+
+
+                    <li>
+                        <a  href="/staff_hr/{{ user_id }}/hr_profile" class="fa fa-2x" style="text-align: center">HR Info</a>
+                    </li>
+                      <li>
+                        <a  href="/staff_hr/{{ user_id }}/hr_show_purchase_record" class="fa fa-2x" style="text-align: center">Sale History</a>
+                    </li>
+                    <li>
+                        <a  href="/staff_hr/{{ user_id }}/hr_show_staff_info" class="fa fa-2x" style="text-align: center">Manage Employee</a>
+                    </li>
+                    <li>
+                        <a  href="/staff_hr/{{ user_id }}/hr_main_page" class="fa fa-2x" style="text-align: center">Return MainPage</a>
+                    </li>
+                    <li>
+                        <a  href="/" class="fa fa-2x" style="text-align: center">Logout</a>
+                    </li>
+                </ul>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div>
+                     <h2 style="font-size:300%; color: #2a6496; text-align: center">A Brand New Day!</h2>
+                    </div>
+                </div>
+
+                 <!-- /. ROW  -->
+                 <hr />
+
+                <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                             Advanced Tables
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Item_ID</th>
+                                            <th>Show_ID</th>
+                                            <th>Price</th>
+                                            <th>Number</th>
+                                        </tr>
+                                    </thead>
+                                    {% if items %}
+                                        {% for foo in items %}
+                                    <tbody>
+                                        <tr class="odd gradeX">
+                                            {% for boo in foo %}
+                                            <td>{{ boo }}</td>
+                                            {%  endfor %}
+
+                                        </tr>
+                                    </tbody>
+                                    {% endfor %}
+                                    {% endif %}
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                </div>
+            </div>
+
+
+
+
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="/static/assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="/static/assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="/static/assets/js/jquery.metisMenu.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="/static/assets/js/custom.js"></script>
+
+
+</body>
+</html>

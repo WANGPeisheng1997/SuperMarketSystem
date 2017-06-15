@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Customer Complain</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="/static/assets/css/bootstrap.css" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link href="/static/assets/css/font-awesome.css" rel="stylesheet"/>
+    <!-- MORRIS CHART STYLES-->
+
+    <!-- CUSTOM STYLES-->
+    <link href="/static/assets/css/custom.css" rel="stylesheet"/>
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <!-- TABLE STYLES-->
+    <link href="/static/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+
+        </div>
+        <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;"> Last access : 30 April 2017 &nbsp;  </div>
+    </nav>
+    <!-- /. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li class="text-center">
+                    <img src="/static/assets/img/haimianbaobao.png" class="user-image img-responsive"/>
+                </li>
+
+
+                <li>
+                    <a href="/customer/{% if user_id %}{{ user_id }}{% endif %}/customer_info" class="fa fa-2x"
+                       style="text-align: center">Info</a>
+                </li>
+                <li>
+                    <a href="/customer/{% if user_id %}{{ user_id }}{% endif %}/purchase_history" class="fa fa-2x"
+                       style="text-align: center">History</a>
+                </li>
+                <li>
+                    <a href="/customer/{% if user_id %}{{ user_id }}{% endif %}/edit_info" class="fa fa-2x"
+                       style="text-align: center">Edit_Info</a>
+                </li>
+                <li>
+                    <a href="/customer/{% if user_id %}{{ user_id }}{% endif %}/submit_complain" class="fa fa-2x"
+                       style="text-align: center">Complain</a>
+                </li>
+                <li>
+                    <a href="/" class="fa fa-2x"
+                       style="text-align: center">Logout</a>
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12" style="text-align: center;">
+                    <h2 style="color: #2EA7EB">Submit Your Complain</h2>
+                </div>
+            </div>
+            <!-- /. ROW  -->
+            <hr/>
+
+            <div class="row" style="text-align: center">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+
+                        <div class="panel-body">
+                            <div class="row">
+
+                                <script type="text/javascript">
+                                        function myCheck() {
+{#                                            for (var i = 0; i < document.complain.elements.length - 1; i++) {#}
+{#                                                if (document.complain.elements[i].value ==  "") {#}
+{#                                                    alert("Your form is not complete!");#}
+{#                                                    alert(document.complain.elements.length);#}
+{#                                                    document.complain.elements[i].focus();#}
+{#                                                    return false#}
+{#                                                };#}
+{#                                            }#}
+
+                                            alert("Successfully edit your personal information!");
+                                            return true;
+
+                                        }
+                                    </script>
+                                <div class="col-md-6">
+                                    <form role="form" name="complain" onsubmit="return myCheck()" method="post" action="/customer/{{ user_id }}/complain">
+                                        <div class="form-group">
+
+                                            <br>
+
+                                            <div class="btn-group" style="float: left">
+                                                <button type="button" class="btn btn-default dropdown-toggle"
+                                                        data-toggle="dropdown">
+                                                    Category<span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Bad Service</a></li>
+                                                    <li><a href="#">Poor taste</a></li>
+                                                    <li><a href="#">Poor Quality</a></li>
+                                                    <li><a href="#">Outdated Product</a></li>
+                                                    <li><a href="#">Fake</a></li>
+                                                    <li><a href="#">Ohter</a></li>
+                                                </ul>
+                                            </div>
+
+                                            <input style="width: 10%;text-align: center" class="form-control"
+                                                   type="text" name="complain_type"/>
+
+
+                                            <div class="form-group">
+                                                <label for="name" style="float: left; font-size: 150%; color: #2EA7EB">Complain
+                                                    Content</label>
+                                                <textarea name="complain_content" cols="150" rows="10"></textarea>
+                                            </div>
+                                            <button style="float: left" type="submit" class="btn btn-primary" onclick="complain_prompt()">
+                                                Submit
+                                            </button>
+                                    </form>
+
+
+                                    <!--End Advanced Tables -->
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- /. PAGE INNER  -->
+                </div>
+                <!-- /. PAGE WRAPPER  -->
+                <!-- /. WRAPPER  -->
+                <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+                <!-- JQUERY SCRIPTS -->
+                <script src="http://www.w3school.com.cn/jquery/jquery-1.11.1.min.js"></script>
+                <script src="/static/assets/js/jquery-1.10.2.js"></script>
+                <!-- BOOTSTRAP SCRIPTS -->
+                <script src="/static/assets/js/bootstrap.min.js"></script>
+                <!-- METISMENU SCRIPTS -->
+                <script src="/static/assets/js/jquery.metisMenu.js"></script>
+                <!-- DATA TABLE SCRIPTS -->
+                <script src="/static/assets/js/dataTables/jquery.dataTables.js"></script>
+                <script src="/static/assets/js/dataTables/dataTables.bootstrap.js"></script>
+                <script>
+                    $(document).ready(function () {
+                        $('#dataTables-example').dataTable();
+                    });
+                </script>
+                <!-- CUSTOM SCRIPTS -->
+                <script src="/static/assets/js/custom.js"></script>
+
+
+</body>
+</html>

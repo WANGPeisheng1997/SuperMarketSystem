@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Human Resource</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="/static/assets/css/bootstrap.css" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link href="/static/assets/css/font-awesome.css" rel="stylesheet"/>
+    <!-- CUSTOM STYLES-->
+    <link href="/static/assets/css/custom.css" rel="stylesheet"/>
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+</head>
+<script type="text/javascript">
+    function myCheck1() {
+        if ($("[name='items[]']:checkbox:checked").length == 0) {
+            alert("Select at least one man to fire!")
+            return false;
+        }
+
+        alert("You have just fired some poor guy");
+        return true;
+
+    }
+    function myCheck2() {
+
+        for (var i = 0; i < 9; i++) {
+            alert(document.hire_employee[i].value);
+            if (document.hire_employee[i].value == "") {
+
+                alert("Please complete your personal information");
+                return false;
+            }
+
+        }
+        alert("Successfully hire a new man!");
+        return true;
+    }
+</script>
+
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+    </nav>
+    <!-- /. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li class="text-center">
+                    <img src="/static/assets/img/hr.png" class="user-image img-responsive"/>
+                </li>
+
+
+                <li>
+                    <a href="/staff_hr/{{ user_id }}/hr_profile" class="fa fa-2x" style="text-align: center">HR Info</a>
+                </li>
+                <li>
+                    <a href="/staff_hr/{{ user_id }}/hr_show_purchase_record" class="fa fa-2x"
+                       style="text-align: center">Sale History</a>
+                </li>
+                <li>
+                    <a href="/staff_hr/{{ user_id }}/hr_show_staff_info" class="fa fa-2x" style="text-align: center">Manage
+                        Employee</a>
+                </li>
+                <li>
+                    <a href="/staff_hr/{{ user_id }}/hr_main_page" class="fa fa-2x" style="text-align: center">Return
+                        MainPage</a>
+                </li>
+                <li>
+                    <a href="/" class="fa fa-2x" style="text-align: center">Logout</a>
+                </li>
+            </ul>
+            </ul>
+
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div>
+                    <h2 style="font-size:300%; color: #2a6496; text-align: center">Fire Employee</h2>
+                </div>
+            </div>
+
+            <!-- /. ROW  -->
+            <hr/>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advanced Tables -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Advanced Tables
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+
+                                <form name="fire_list" role="form" action="/staff_hr/{{ user_id }}/fire_employee"
+                                      method="post" onsubmit="return myCheck1()">
+                                    <table class="table table-striped table-bordered table-hover"
+                                           id="dataTables-example">
+
+                                        <thead>
+                                        <tr>
+                                            <th>Employee_ID</th>
+                                            <th>Employee_Name</th>
+                                            <th>Phone</th>
+                                            <th>Salary</th>
+                                            <th>Fire Employee</th>
+                                        </tr>
+                                        </thead>
+                                        {% if items %}
+                                            {% for foo in items %}
+                                                <tbody>
+                                                <tr class="odd gradeX">
+                                                    {% for boo in foo %}
+                                                        <td>{{ boo }}</td>
+                                                    {% endfor %}
+                                                    <td><input type="checkbox" name="items[]" value={{ foo[0] }}></td>
+                                                </tr>
+                                                </tbody>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </table>
+                                    <button type="submit" class="btn btn-primary" value="Purchase">Fire</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                    <div class="col-md-12">
+                        <!-- Advanced Tables -->
+                        <h2 style="font-size:300%; color: #2a6496; text-align: center">Add New Employee</h2>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <form role="form" name="hire_employee"
+                                              action="/staff_hr/{{ user_id }}/hire_employee" method="post"
+                                              onsubmit="return myCheck2()">
+                                            <div class="form-group">
+                                                <label>Employee Name</label>
+                                                <input class="form-control" name="employee_name"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Department</label>
+                                                <input class="form-control" name="employee_department"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Employee Password</label>
+                                                <input class="form-control" name="employee_password"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Employee Idcard</label>
+                                                <input class="form-control" name="employee_idcard"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Employee Phone</label>
+                                                <input class="form-control" name="employee_phone"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Employee Address</label>
+                                                <input class="form-control" name="employee_address"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Employee Position</label>
+                                                <input class="form-control" name="employee_position"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Employee Note</label>
+                                                <input class="form-control" name="employee_note"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Employee Salary</label>
+                                                <input class="form-control" name="employee_salary"/>
+                                            </div>
+                                            <button type="submit" class="btn btn-default">Submit</button>
+                                            <button type="reset" class="btn btn-primary">Reset</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /. ROW  -->
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+<!-- /. WRAPPER  -->
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="/static/assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="/static/assets/js/bootstrap.min.js"></script>
+<!-- METISMENU SCRIPTS -->
+<script src="/static/assets/js/jquery.metisMenu.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="/static/assets/js/custom.js"></script>
+
+
+</body>
+</html>
